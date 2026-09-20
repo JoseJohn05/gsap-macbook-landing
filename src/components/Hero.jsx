@@ -1,16 +1,15 @@
-import {useEffect, useRef} from "react";
+import {useEffect} from "react";
 
 function Hero() {
-    const videoRef = useRef();
-
     useEffect(() => {
-        if (videoRef.current) videoRef.current.playbackRate = 2;
+        const video = document.querySelector('#hero video');
+        if (video) video.playbackRate = 2;
     }, []);
 
     return (
         <section id="hero">
             <div>
-                <h1>MackBook Pro</h1>
+                <h1>MacBook Pro</h1>
                 <img src="/title.png" alt="MacBook title"/>
 
                 <video src="/videos/hero.mp4" autoPlay muted playsInline/>

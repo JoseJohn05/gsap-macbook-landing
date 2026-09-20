@@ -6,7 +6,7 @@ import gsap from 'gsap';
 import {useGSAP} from "@gsap/react";
 
 const ANIMATION_DURATION = 1;
-const OFFSSET_DISTANCE = 5;
+const OFFSET_DISTANCE = 5;
 
 const fadeMeshes = (group, opacity) => {
     if(!group) return;
@@ -34,14 +34,14 @@ const ModelSwitcher = ({scale, isMobile}) => {
 
     useGSAP(()=> {
         if(showLargeMacBook){
-            moveGroup(smallMacBookRef.current, -OFFSSET_DISTANCE);
+            moveGroup(smallMacBookRef.current, -OFFSET_DISTANCE);
             moveGroup(largeMacBookRef.current, 0);
 
             fadeMeshes(smallMacBookRef.current, 0);
             fadeMeshes(largeMacBookRef.current, 1);
         } else{
             moveGroup(smallMacBookRef.current, 0);
-            moveGroup(largeMacBookRef.current, OFFSSET_DISTANCE);
+            moveGroup(largeMacBookRef.current, OFFSET_DISTANCE);
 
             fadeMeshes(smallMacBookRef.current, 1);
             fadeMeshes(largeMacBookRef.current, 0);

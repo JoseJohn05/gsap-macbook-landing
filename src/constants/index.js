@@ -27,13 +27,13 @@ const noChangeParts = [
 ];
 
 const performanceImages = [
-    { id: "p1", src: "/performance1.png" },
-    { id: "p2", src: "/performance2.png" },
-    { id: "p3", src: "/performance3.png" },
-    { id: "p4", src: "/performance4.png" },
-    { id: "p5", src: "/performance5.jpg" },
-    { id: "p6", src: "/performance6.png" },
-    { id: "p7", src: "/performance7.png" },
+    { id: "p1", src: "/performance1.png", alt: "Apple silicon chip performance comparison graphic" },
+    { id: "p2", src: "/performance2.png", alt: "Game graphics running smoothly on the new GPU" },
+    { id: "p3", src: "/performance3.png", alt: "Rendering and image processing performance diagram" },
+    { id: "p4", src: "/performance4.png", alt: "Laptop graphics performance benchmark graphics" },
+    { id: "p5", src: "/performance5.jpg", alt: "Close-up of advanced graphics and video rendering" },
+    { id: "p6", src: "/performance6.png", alt: "Pro workflow performance with accelerated ray tracing" },
+    { id: "p7", src: "/performance7.png", alt: "MacBook graphics performance illustration" },
 ];
 
 const performanceImgPositions = [

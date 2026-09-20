@@ -17,7 +17,7 @@ function NavBar() {
 
                 <div className="flex-center gap-3">
                     <button>
-                        <img src="/search.svg" alt="Seacrh icon"/>
+                        <img src="/search.svg" alt="Search icon"/>
                     </button>
                     <button>
                         <img src="/cart.svg" alt="Cart icon"/>
