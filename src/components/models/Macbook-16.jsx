@@ -8,28 +8,33 @@ Source: https://sketchfab.com/3d-models/macbook-pro-m3-16-inch-2024-8e34fc2b3031
 Title: macbook pro M3 16 inch 2024
 */
 
-import {useGLTF, useTexture} from '@react-three/drei'
-import {useEffect} from "react";
-import {noChangeParts} from "../../constants/index.js";
-import {Color, Scene} from "three";
+import { useGLTF, useTexture } from "@react-three/drei";
+import { useEffect } from "react";
+import { noChangeParts } from "../../constants/index.js";
+import { Color, SRGBColorSpace } from "three";
 import useMacBookStore from "../../store/index.js";
 
 export default function MacBookModel16(props) {
-    const {color} = useMacBookStore();
-  const { nodes, materials, scene } = useGLTF('/models/macbook-16-transformed.glb')
+  const { color } = useMacBookStore();
 
-    const texture = useTexture('/screen.png');
+  const texture = useTexture("/screen.png", (loadedTexture) => {
+    loadedTexture.colorSpace = SRGBColorSpace;
+    loadedTexture.needsUpdate = true;
+  });
 
-    useEffect(() => {
-        scene.traverse((child) => {
-            if(child.isMesh){
-                //change color only if the part name is NOT noChangeParts
-                if(!noChangeParts.includes(child.name)){
-                    child.material.color = new Color(color);
-                }
-            }
-        })
-    }, [color, scene]);
+  const { nodes, materials, scene } = useGLTF("/models/macbook-16-transformed.glb");
+
+  useEffect(() => {
+    scene.traverse((child) => {
+      if (child.isMesh) {
+        //change color only if the part name is NOT noChangeParts
+        if (!noChangeParts.includes(child.name)) {
+          child.material.color = new Color(color);
+        }
+      }
+    });
+  }, [color, scene]);
+
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.Object_10.geometry} material={materials.PaletteMaterial001} rotation={[Math.PI / 2, 0, 0]} />
@@ -50,11 +55,11 @@ export default function MacBookModel16(props) {
       <mesh geometry={nodes.Object_96.geometry} material={materials.PaletteMaterial003} rotation={[Math.PI / 2, 0, 0]} />
       <mesh geometry={nodes.Object_107.geometry} material={materials.JvMFZolVCdpPqjj} rotation={[Math.PI / 2, 0, 0]} />
       <mesh geometry={nodes.Object_123.geometry} rotation={[Math.PI / 2, 0, 0]}>
-          <meshBasicMaterial map={texture}/>
+        <meshBasicMaterial map={texture} />
       </mesh>
       <mesh geometry={nodes.Object_127.geometry} material={materials.ZCDwChwkbBfITSW} rotation={[Math.PI / 2, 0, 0]} />
     </group>
-  )
+  );
 }
 
-useGLTF.preload('/models/macbook-16-transformed.glb')
+useGLTF.preload("/models/macbook-16-transformed.glb");
