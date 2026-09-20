@@ -19,21 +19,20 @@ const ModelScroll = () => {
     const isMobile = useMediaQuery({ query: "(max-width: 1024px)" });
     const { setTexture } = useMacBookStore();
     
-    //Pre-load all feature videos during component mount
+    //Pre-load the first feature video during component mount
     useEffect(() => {
-        featureSequence.forEach((feature) => {
-            const v = document.createElement('video');
+        const firstFeature = featureSequence[0];
+        const v = document.createElement('video');
 
-            Object.assign(v, {
-                src: feature.videoPath,
-                muted: true,
-                playsInline: true,
-                preload: 'auto',
-                crossOrigin: 'anonymous',
-            });
+        Object.assign(v, {
+            src: firstFeature.videoPath,
+            muted: true,
+            playsInline: true,
+            preload: 'auto',
+            crossOrigin: 'anonymous',
+        });
 
-            v.load();
-        })
+        v.load();
     }, []);
 
     useGSAP(() => {
