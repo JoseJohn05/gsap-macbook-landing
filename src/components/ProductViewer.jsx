@@ -1,7 +1,6 @@
 import useMacBookStore from "../store/index.js";
 import clsx from "clsx";
 import {Canvas} from "@react-three/fiber";
-import MacBookModel14 from "./models/Macbook-14.jsx";
 import StudioLights from "./three/StudioLights.jsx";
 import ModelSwitcher from "./three/ModelSwitcher.jsx";
 import {useMediaQuery} from "react-responsive";

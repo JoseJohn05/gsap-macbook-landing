@@ -64,9 +64,16 @@ const ModelScroll = () => {
         }
 
         // Content and texture
-        featureSequence.forEach(({videoPath, boxClass, delay}) => {
+        featureSequence.forEach(({boxClass, delay}, index) => {
             timeline
-                .call(() => setTexture(videoPath))
+                .call(() => {
+                    const textureIndex = timeline.scrollTrigger.direction === -1 ? index - 1 : index;
+                    const texturePath = featureSequence[textureIndex]?.videoPath;
+
+                    if (texturePath) {
+                        setTexture(texturePath);
+                    }
+                })
                 .to(boxClass, { opacity: 1, y: 0, duration: 1 }, `+=${delay}`);
         });
     }, []);

@@ -7,7 +7,7 @@ function Highlights() {
 
     useGSAP(() => {
         gsap.to(['.left-column', '.right-column'], {
-            ScrollTrigger: {
+        scrollTrigger: {
                 trigger: '#highlights',
                 start: isMobile ? 'bottom bottom' : 'top center'
             },
@@ -41,7 +41,7 @@ function Highlights() {
                     <div className="apple-gradient">
                         <img src="/ai.png" alt="ai" />
                         <p>Built for <br /> 
-                        <span>Apple Intelligemnce.</span></p>
+                        <span>Apple Intelligence.</span></p>
                     </div>
                     <div>
                         <img src="/battery.png" alt="battery" />

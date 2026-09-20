@@ -2,12 +2,12 @@ import {useEffect} from "react";
 
 function Hero() {
     useEffect(() => {
-        const video = document.querySelector('#hero-video video');
+        const video = document.querySelector('#hero video');
         if (video) video.playbackRate = 2;
     }, []);
 
     return (
-        <section id="hero-video">
+        <section id="hero">
             <div>
                 <h1>MacBook Pro</h1>
                 <img src="/title.png" alt="MacBook title"/>

@@ -18,12 +18,10 @@ export default function MacBookModel14(props) {
     const {color} = useMacBookStore();
   const { nodes, materials, scene} = useGLTF('/models/macbook-14-transformed.glb');
 
-  const texture = useTexture(('/screen.png'));
-
-    useEffect(() => {
-        texture.colorSpace = SRGBColorSpace;
-        texture.needsUpdate = true;
-    }, [texture]);
+  const texture = useTexture('/screen.png', (loadedTexture) => {
+      loadedTexture.colorSpace = SRGBColorSpace;
+      loadedTexture.needsUpdate = true;
+  });
 
     useEffect(() => {
         scene.traverse((child) => {
